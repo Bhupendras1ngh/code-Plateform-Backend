@@ -12,31 +12,33 @@ router.get('/' ,(req ,res) =>{
 
 // create new user
 //for encription and ecription we use crypto-js ,uuid is use to generate random string which will we used as user id 
-// router.post('/' ,(req, res)=>{
-//    let userObj =req.body;
-//     userObj.password =CryptoJS.AES.encrypt(userObj.password ,'1234567').toString();
-//     userObj['userid'] = uuidv4(); 
-//     let newuser =new userModel(userObj);
-//     newuser.save().then((doc)=>{
-//         res.json({error :false ,response : doc})
-//     }).catch((err)=>{
-//         console.log(err);
-//         res.json({error:true ,message :"Error in craeting doc"});
-//     })
-
-// });
-router.post('/', (req,res)=>{
-    let userObj = req.body;
-    userObj.password = CryptoJS.AES.encrypt(userObj.password, '1234567').toString();
-    userObj['userid'] = uuidv4();
-    let newUser = new userModel(userObj);
-    newUser.save().then((doc)=>{
-        res.json({error:false, response: doc});
+router.post('/' ,(req, res)=>{
+   let userObj =req.body;
+   console.log(userObj);
+    userObj.password =CryptoJS.AES.encrypt(userObj.password ,'1234567').toString();
+    userObj['userid'] = uuidv4(); 
+    let newuser =new userModel(userObj);
+    newuser.save().then((doc)=>{
+        res.json({error :false ,response : doc})
     }).catch((err)=>{
         console.log(err);
-        res.json({error: true, message:'Error in creating doc'});
-    });
+       // console.log(doc);
+        res.json({error:true ,message :"Error in craeting doc"});
+    })
+
 });
+// router.post('/', (req,res)=>{
+//     let userObj = req.body;
+//     userObj.password = CryptoJS.AES.encrypt(userObj.password, '1234567').toString();
+//     userObj['userid'] = uuidv4();
+//     let newUser = new userModel(userObj);
+//     newUser.save().then((doc)=>{
+//         res.json({error:false, response: doc});
+//     }).catch((err)=>{
+//         console.log(err);
+//         res.json({error: true, message:'Error in creating doc'});
+//     });
+// });
 
 //localhost:3000/users/login
 router.post('/login' ,(req, res)=>{
