@@ -10,6 +10,11 @@ router.get('/:fiddleid' ,(req ,res)=>{
         res.json({error :false ,response :doc});
     }).catch((err)=>console.log(err));
 });
+router.get('/' ,(req ,res)=>{
+    fiddleModel.findOne({fiddleid: req.params.fiddleid}).then((doc)=>{
+        res.json({error :false ,response :doc});
+    }).catch((err)=>console.log(err));
+});
 
 router.get('/user/:userid' ,(req ,res)=>{
     fiddleModel.find({userid:req.params.userid}).then((doc)=>{

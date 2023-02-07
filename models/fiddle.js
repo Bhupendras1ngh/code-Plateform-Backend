@@ -5,7 +5,7 @@ const fiddleSchema =new Schema({
     code : {type: String ,default: ''},
     language : {type:String ,default:''},
     name : {type :String ,default:'Untitled Fiddle' + Date.now()},
-    fiddleid :{type:String , required: true},
+    fiddleid :{type:String , required: false},
     userid:{ type:String ,required: true}
 });
 module.exports =mongoose.model('fiddle' ,fiddleSchema);
