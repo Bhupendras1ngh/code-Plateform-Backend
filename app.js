@@ -30,13 +30,13 @@ app.post('/execute', (req ,res)=>{
 })
 
 
-mongoose.connect('mongodb+srv://CodeFiddle:Bhupendra9001@cluster0.ct0ioyp.mongodb.net/codefiddle?retryWrites=true&w=majority', {useNewUrlParser:true ,useUnifiedTopology:true}).then(()=>{
+mongoose.connect('mongodb+srv://CodeFiddle:Bhupendra9001@cluster0.ct0ioyp.mongodb.net/codeFiddle?retryWrites=true&w=majority', {useNewUrlParser:true ,useUnifiedTopology:true}).then(()=>{
     console.log("connected to db")
 }).catch((err)=>{
-    console,log(err);
+   // console,log(err);
 });
 
 
-app.listen(3000 ,()=>{
-    console.log("server is running in port 3000");
+app.listen(5500 ,()=>{
+    console.log("server is running in port 5500");
 })

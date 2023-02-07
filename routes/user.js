@@ -7,7 +7,18 @@ const {v4:uuidv4} =require('uuid');
 //1/Login -Post
 //2.Creating Account for new user-- Post
 router.get('/' ,(req ,res) =>{
-    res.end("user router is there");
+    //res.end("user router is there");
+    userModel.find().then(result =>{
+        res.status(200).json({
+            userData :result
+        });
+    })
+    .catch(err=>{
+        console.log(err);
+        res.statusCode(500).json({
+            error :err
+        })
+    })
 })
 
 // create new user
@@ -24,7 +35,8 @@ router.post('/' ,(req, res)=>{
         console.log(err);
        // console.log(doc);
         res.json({error:true ,message :"Error in craeting doc"});
-    })
+    });
+    console.log(newuser);
 
 });
 // router.post('/', (req,res)=>{
