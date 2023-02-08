@@ -1,6 +1,6 @@
 const express =require('express');
 const router =express.Router();
-const fiddleModel =require('../models/user');
+const fiddleModel =require('../models/fiddle');
 //const CryptoJS =require('crypto-js');
 const {v4:uuidv4} =require('uuid');
 
@@ -10,11 +10,11 @@ router.get('/:fiddleid' ,(req ,res)=>{
         res.json({error :false ,response :doc});
     }).catch((err)=>console.log(err));
 });
-router.get('/' ,(req ,res)=>{
-    fiddleModel.findOne({fiddleid: req.params.fiddleid}).then((doc)=>{
-        res.json({error :false ,response :doc});
-    }).catch((err)=>console.log(err));
-});
+// router.get('/' ,(req ,res)=>{
+//     fiddleModel.findOne({fiddleid: req.params.fiddleid}).then((doc)=>{
+//         res.json({error :false ,response :doc});
+//     }).catch((err)=>console.log(err));
+// });
 
 router.get('/user/:userid' ,(req ,res)=>{
     fiddleModel.find({userid:req.params.userid}).then((doc)=>{
