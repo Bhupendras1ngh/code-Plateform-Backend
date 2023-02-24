@@ -23,7 +23,7 @@ router.get('/' ,(req ,res) =>{
 
 // create new user
 //for encription and ecription we use crypto-js ,uuid is use to generate random string which will we used as user id 
-router.post('/' ,(req, res)=>{
+router.post('/' ,(req, res)=>{ 
    let userObj =req.body;
    console.log(userObj);
     userObj.password =CryptoJS.AES.encrypt(userObj.password ,'1234567').toString();
